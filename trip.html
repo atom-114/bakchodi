@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiti Trip</title>
+<style>
+    body {
+        background-color: #e6e6fa; /* Light purple background color */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    #container {
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8); /* White box with opacity */
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+    }
+    #container h1 {
+        color: #6c4b5b; /* Mountain rock color */
+        font-family: 'Permanent Marker', cursive; /* Handwritten chalk-like font */
+        margin-bottom: 20px;
+    }
+    .button {
+        margin: 5px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff; /* Blue color for buttons */
+        color: #fff; /* White text color */
+    }
+    .thank-you {
+        color: green; /* Green color for Thank You message */
+    }
+    .error {
+        color: red; /* Red color for error messages */
+        font-size: 1.2em; /* Larger font size for error messages */
+    }
+</style>
+<script>
+function handleClick() {
+    document.getElementById("firstTuple").style.display = "none";
+    document.getElementById("question1").style.display = "block";
+}
+
+function handleResponse1(response) {
+    if (response === 'yes') {
+        document.getElementById("question1").style.display = "none";
+        document.getElementById("thankYou1").style.display = "block";
+    } else {
+        document.getElementById("question1").style.display = "none";
+        document.getElementById("question2").style.display = "block";
+    }
+}
+
+function handleResponse2(response) {
+    if (response === 'try') {
+        document.getElementById("question2").style.display = "none";
+        document.getElementById("response2").style.display = "block";
+    } else {
+        document.getElementById("question2").style.display = "none";
+        document.getElementById("question3").style.display = "block";
+    }
+}
+
+function handleResponse3(response) {
+    if (response === 'iske') {
+        document.getElementById("question3").style.display = "none";
+        document.getElementById("error1").style.display = "block";
+    } else {
+        document.getElementById("question3").style.display = "none";
+        document.getElementById("question4").style.display = "block";
+    }
+}
+
+function handleResponse4(response) {
+    if (response === 'sorry-bhai') {
+        document.getElementById("question4").style.display = "none";
+        document.getElementById("maaChuda").style.display = "block";
+    } else {
+        document.getElementById("question4").style.display = "none";
+        document.getElementById("response3").style.display = "block";
+    }
+}
+
+function handleResponse5(response) {
+    if (response === 'sorry-bhai-2') {
+        document.getElementById("response3").style.display = "none";
+        document.getElementById("maaChuda").style.display = "block";
+    } else {
+        document.getElementById("response3").style.display = "none";
+        document.getElementById("error2").style.display = "block";
+    }
+}
+
+</script>
+<!-- Add Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">
+</head>
+<body>
+<div id="container">
+    <h1 style="color: black;">Mountains are calling and you must come</h1>
+    <div id="firstTuple">
+        <button class="button" onclick="handleClick()">Click Now</button>
+    </div>
+    <div id="question1" style="display: none;">
+        <p>Are you coming to Spiti?</p>
+        <button class="button" onclick="handleResponse1('yes')">Yes</button>
+        <button class="button" onclick="handleResponse1('no')">No, I can not join you guys</button>
+    </div>
+    <div id="thankYou1" style="display: none;">
+        <p class="thank-you">Tera toh maalum hai laude. Ab tu bhi mana karega kya bsdk</p>
+    </div>
+    <div id="question2" style="display: none;">
+        <p>Are you sure?</p>
+        <button class="button" onclick="handleResponse2('try')">Chalo try karta hu</button>
+        <button class="button" onclick="handleResponse2('ha')">Ha bhai nahi aa sakta</button>
+    </div>
+    <div id="response2" style="display: none;">
+        <p class="thank-you">Maa mat chuda laude aana hi hai</p>
+    </div>
+    <div id="question3" style="display: none;">
+        <p>Rajesh ka toh soch</p>
+        <button class="button" onclick="handleResponse3('iske')">Iske liye toh aana hi padega</button>
+        <button class="button" onclick="handleResponse3('sorry')">Sorry bhai, nahi aa sakta</button>
+    </div>
+    <div id="error1" style="display: none;">
+        <p class="error">Nakhre kya chod raha tha fir itni der se</p>
+    </div>
+    <div id="question4" style="display: none;">
+        <p>Ab kuchh nahi ho sakta?</p>
+        <button class="button" onclick="handleResponse4('sorry-bhai')">Sorry bhai, this time not possible</button>
+        <button class="button" onclick="handleResponse4('chal')">Chalo aa jaaunga</button>
+    </div>
+    <div id="response3" style="display: none;">
+        <p class="error">toh itni der se maa kyu chuda raha tha fir</p>
+    </div>
+    <div id="maaChuda" style="display: none;">
+        <p class="error" style="font-size: 3x;">Maa chuda fir</p>
+    </div>
+    <div id="error2" style="display: none;">
+        <p class="error">Abey maa chuda bsdk itni der se hi bolna tha toh</p>
+    </div>
+</div>
+</body>
+</html>
